@@ -7,7 +7,10 @@ export function Layout() {
     <div className="app-frame">
       <Sidebar />
       <div className="app-main">
-        <header className="terminal-bar">AI_PULSE // tensorfeed uplink</header>
+        <header className="app-topbar">
+          <span className="app-topbar-title">AI Pulse</span>
+          <span className="app-topbar-sub">Live · TensorFeed</span>
+        </header>
         <Outlet />
       </div>
       <MobileNav />

@@ -34,23 +34,19 @@ export function HomePage() {
   return (
     <main className="page">
       <header className="page-header">
-        <h1 className="terminal-prompt">
-          <span className="terminal-prompt-user">ai-pulse@tensorfeed</span>
-          <span className="terminal-prompt-path">:~$</span>
-          <span className="terminal-cursor" aria-hidden="true" />
-        </h1>
-        <p>// daily_ai_ecosystem_briefing</p>
+        <h1>AI Pulse</h1>
+        <p>Your daily AI ecosystem briefing</p>
         {dataUpdatedAt > 0 && (
           <p className="timestamp timestamp-spaced">
-            updated {new Date(dataUpdatedAt).toLocaleTimeString()}
+            Updated {new Date(dataUpdatedAt).toLocaleTimeString()}
           </p>
         )}
       </header>
 
-      <h2 className="section-title">provider_status</h2>
+      <h2 className="section-title">Provider Status</h2>
       <p className="text-sm text-dim mb-12">
         {downCount === 0
-          ? `all ${services.length} providers operational`
+          ? `All ${services.length} providers operational`
           : `${downCount} provider${downCount > 1 ? 's' : ''} with issues`}
       </p>
       <div className="status-grid">
@@ -59,7 +55,7 @@ export function HomePage() {
         ))}
       </div>
 
-      <h2 className="section-title">top_headlines</h2>
+      <h2 className="section-title">Top Headlines</h2>
       {newsItems.length === 0 ? (
         <p className="loading">No headlines available</p>
       ) : (
@@ -80,7 +76,7 @@ export function HomePage() {
 
       {trendingPapers.length > 0 && (
         <>
-          <h2 className="section-title">trending_research</h2>
+          <h2 className="section-title">Trending Research</h2>
           {trendingPapers.slice(0, 3).map((paper, i) => (
             <div className="card" key={i}>
               <h3>

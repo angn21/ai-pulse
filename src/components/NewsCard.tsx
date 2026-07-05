@@ -19,7 +19,7 @@ export function NewsCard({ article, actionCard }: NewsCardProps) {
   const snippet = article.snippet ? stripHtml(article.snippet) : '';
 
   return (
-    <article className="card terminal-card">
+    <article className="card">
       <h3>
         <a href={article.url} target="_blank" rel="noopener noreferrer">
           {article.title}

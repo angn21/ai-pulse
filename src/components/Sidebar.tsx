@@ -5,8 +5,8 @@ export function Sidebar() {
   return (
     <nav className="sidebar" aria-label="Main navigation">
       <div className="sidebar-brand">
-        <strong>AI_PULSE</strong>
-        tensorfeed uplink
+        <strong>AI Pulse</strong>
+        <span>AI ecosystem dashboard</span>
       </div>
       {NAV_LINKS.map(({ to, label, end }) => (
         <NavLink
