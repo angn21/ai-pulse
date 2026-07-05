@@ -19,22 +19,20 @@ export function NewsCard({ article, actionCard }: NewsCardProps) {
   const snippet = article.snippet ? stripHtml(article.snippet) : '';
 
   return (
-    <article className="card">
+    <article className="card terminal-card">
       <h3>
         <a href={article.url} target="_blank" rel="noopener noreferrer">
           {article.title}
         </a>
       </h3>
       {snippet && (
-        <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: 8, lineHeight: 1.45 }}>
+        <p className="card-snippet">
           {snippet.slice(0, 200)}
           {snippet.length > 200 ? '…' : ''}
         </p>
       )}
       {actionCard?.action_summary && (
-        <p style={{ fontSize: '0.85rem', marginTop: 10, padding: '8px 10px', background: 'var(--bg)', borderRadius: 8 }}>
-          {actionCard.action_summary}
-        </p>
+        <p className="card-action-summary">{actionCard.action_summary}</p>
       )}
       <div className="card-meta">
         <span>{article.source}</span>

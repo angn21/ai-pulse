@@ -88,7 +88,7 @@ export function NewsPage() {
         <h1>AI News</h1>
         <p>Aggregated from 36+ sources, refreshed every 10 minutes</p>
         {newsQuery.data?.updated && (
-          <p className="timestamp" style={{ marginTop: 8 }}>
+          <p className="timestamp timestamp-spaced">
             Feed updated {new Date(newsQuery.data.updated).toLocaleString()}
           </p>
         )}

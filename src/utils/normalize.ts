@@ -18,15 +18,15 @@ export function stripHtml(text: string): string {
 export function statusLabel(status: string): string {
   switch (status) {
     case 'operational':
-      return 'OK';
+      return '[OK]';
     case 'degraded':
-      return 'Degraded';
+      return '[DEG]';
     case 'down':
-      return 'Down';
+      return '[DOWN]';
     case 'maintenance':
-      return 'Maint.';
+      return '[MAINT]';
     default:
-      return status;
+      return `[${status.toUpperCase()}]`;
   }
 }
 

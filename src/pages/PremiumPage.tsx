@@ -84,7 +84,7 @@ export function PremiumPage() {
           Free premium trial: <strong>{quota.remaining ?? '?'}</strong> of{' '}
           {quota.limit ?? 100} calls remaining today
           {quota.resets_at && (
-            <span style={{ display: 'block', marginTop: 4, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            <span className="premium-quota-sub">
               Resets {new Date(quota.resets_at).toLocaleString()}
             </span>
           )}
@@ -92,10 +92,10 @@ export function PremiumPage() {
       )}
 
       <h2 className="section-title">Model Routing Preview (free, 5/day)</h2>
-      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 12 }}>
+      <p className="text-muted-block">
         Which model is best for your task? Uses the free preview endpoint — no credits consumed.
       </p>
-      <div className="tabs" style={{ marginBottom: 12 }}>
+      <div className="tabs tabs-compact">
         {(['general', 'code', 'reasoning', 'creative'] as const).map((t) => (
           <button key={t} className={`tab ${task === t ? 'active' : ''}`} onClick={() => setTask(t)}>
             {t}
@@ -106,13 +106,13 @@ export function PremiumPage() {
         {loading === 'preview' ? 'Loading…' : 'Get recommendation'}
       </button>
       {routingResult && (
-        <pre className="premium-result" style={{ marginTop: 12 }}>
+        <pre className="premium-result mt-12">
           {JSON.stringify(routingResult, null, 2)}
         </pre>
       )}
 
       <h2 className="section-title">Daily Brief (free)</h2>
-      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 12 }}>
+      <p className="text-muted-block">
         Free alternative to the premium morning brief — uses /api/today.
       </p>
       <button className="btn btn-secondary" disabled={!!loading} onClick={runFreeBrief}>
@@ -120,10 +120,10 @@ export function PremiumPage() {
       </button>
 
       <h2 className="section-title">Premium Trial Features (uses free quota)</h2>
-      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 12 }}>
+      <p className="text-muted-block">
         These call premium endpoints using your 100 free daily credits. No wallet required.
       </p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+      <div className="flex-wrap-gap mb-16">
         <button
           className="btn btn-secondary"
           disabled={!!loading}
@@ -142,19 +142,19 @@ export function PremiumPage() {
 
       {whatsNewResult && (
         <>
-          <h3 style={{ fontSize: '0.9rem', marginBottom: 8 }}>Brief</h3>
+          <h3 className="subheading">Brief</h3>
           <pre className="premium-result">{JSON.stringify(whatsNewResult, null, 2)}</pre>
         </>
       )}
       {verifiedResult && (
         <>
-          <h3 style={{ fontSize: '0.9rem', marginBottom: 8 }}>Verified News</h3>
+          <h3 className="subheading">Verified News</h3>
           <pre className="premium-result">{JSON.stringify(verifiedResult, null, 2)}</pre>
         </>
       )}
 
       {error && (
-        <div className="error" style={{ marginTop: 16, textAlign: 'left' }}>
+        <div className="error error-left">
           {error}
         </div>
       )}

@@ -12,8 +12,8 @@ export default defineConfig({
         name: 'AI Pulse',
         short_name: 'AI Pulse',
         description: 'Daily AI news, provider status, and ecosystem intelligence',
-        theme_color: '#0f172a',
-        background_color: '#0f172a',
+        theme_color: '#0a0e0a',
+        background_color: '#0a0e0a',
         display: 'standalone',
         start_url: '/',
         icons: [

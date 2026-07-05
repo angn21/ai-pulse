@@ -26,7 +26,7 @@ export function StatusPage() {
         <h1>Provider Status</h1>
         <p>Live uptime for major AI services</p>
         {statusQuery.data?.checked && (
-          <p className="timestamp" style={{ marginTop: 8 }}>
+          <p className="timestamp timestamp-spaced">
             Last checked {new Date(statusQuery.data.checked).toLocaleString()}
           </p>
         )}

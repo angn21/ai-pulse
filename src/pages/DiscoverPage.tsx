@@ -128,7 +128,7 @@ export function DiscoverPage() {
         <>
           <h2 className="section-title">Pricing Comparison</h2>
           {filteredPricing.length > 0 ? (
-            <div style={{ overflowX: 'auto' }}>
+            <div className="overflow-x-auto">
               <table className="pricing-table">
                 <thead>
                   <tr>
@@ -151,7 +151,7 @@ export function DiscoverPage() {
               </table>
             </div>
           ) : (
-            <p style={{ color: 'var(--text-muted)' }}>No pricing data</p>
+            <p className="text-dim">No pricing data</p>
           )}
 
           {filteredModels.length > 0 && (
@@ -179,7 +179,7 @@ export function DiscoverPage() {
         <>
           <h2 className="section-title">Trending by Citations</h2>
           {papers.length === 0 ? (
-            <p style={{ color: 'var(--text-muted)' }}>No papers available</p>
+            <p className="text-dim">No papers available</p>
           ) : (
             papers.slice(0, 10).map((p, i) => (
               <div className="card" key={i}>
@@ -203,7 +203,7 @@ export function DiscoverPage() {
 
           <h2 className="section-title">Latest arXiv</h2>
           {arxiv.length === 0 ? (
-            <p style={{ color: 'var(--text-muted)' }}>No arXiv papers available</p>
+            <p className="text-dim">No arXiv papers available</p>
           ) : (
             arxiv.slice(0, 10).map((p) => (
               <div className="card" key={p.arxivId}>
@@ -226,7 +226,7 @@ export function DiscoverPage() {
         <>
           <h2 className="section-title">Recent Funding Rounds</h2>
           {rounds.length === 0 ? (
-            <p style={{ color: 'var(--text-muted)' }}>No funding data available</p>
+            <p className="text-dim">No funding data available</p>
           ) : (
             rounds.slice(0, 25).map((r, i) => (
               <div className="card" key={i}>
@@ -240,7 +240,7 @@ export function DiscoverPage() {
                   )}
                 </h3>
                 {r.source_url && (
-                  <a href={r.source_url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem' }}>
+                  <a href={r.source_url} target="_blank" rel="noopener noreferrer" className="text-xs">
                     Source →
                   </a>
                 )}
@@ -259,14 +259,14 @@ export function DiscoverPage() {
       {tab === 'attention' && !isLoading && (
         <>
           <h2 className="section-title">AI Attention Index</h2>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 16 }}>
+          <p className="text-muted-block">
             Who&apos;s dominating AI news and community attention right now
           </p>
           {attention.map((a) => (
             <div className="card" key={a.provider}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+              <div className="flex-row-between">
                 <h3>{a.provider}</h3>
-                <span style={{ fontWeight: 700, color: 'var(--accent)' }}>{Math.round(a.score)}</span>
+                <span className="score-value">{Math.round(a.score)}</span>
               </div>
               <div className="attention-bar">
                 <div
